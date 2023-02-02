@@ -1,0 +1,6 @@
+.venv
+__pycache__/
+tmp/
+mexgis_duckdb/
+.DS_Store
+data/

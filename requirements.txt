@@ -1,0 +1,6 @@
+pyarrow
+geopandas
+shapely
+duckdb
+sqlalchemy
+h3==4.0.0b1
