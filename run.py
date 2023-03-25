@@ -17,8 +17,9 @@ def shapefile_to_parquet():
     shapefile_path = sys.argv[1]
     output_path = sys.argv[2]
 
-    # Process table
-    gdf = gpd.read_file(shapefile_path)
+    # Process table, convert to `EPSG:4326 -- WGS84` which is the standard for Unfolded
+    # Reference requirement: https://location.foursquare.com/studio/docs/data-formats#coordinate-reference-systems
+    gdf = gpd.read_file(shapefile_path).to_crs(epsg=4326)
 
     # Clean up NOMGEO to strings safely encoded to ASCII
     if 'NOMGEO' in gdf.columns:
